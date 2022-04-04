@@ -1,38 +1,81 @@
-.App {
-  text-align: center;
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main {
+  width: 500;
+  height: 500;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.grid-container {
+  display: grid;
+  width: fit-content;
+  height: fit-content;
+  grid-template-columns: auto auto auto auto auto auto;
+  background-color: #000000;
+  gap: 1px;
+  border: 1px solid #000000;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.grid-item {
+  width: 50px;
+  height: 50px;
+}
+
+.grid-item-top-clue {
   display: flex;
-  flex-direction: column;
+  background-color: #ffffff;
+  padding: 3px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: flex-end;
+  text-orientation: upright;
+  writing-mode: vertical-rl;
 }
 
-.App-link {
-  color: #61dafb;
+.grid-item-left-clue {
+  display: flex;
+  background-color: #ffffff;
+  padding: 3px;
+  letter-spacing: 3px;
+  justify-content: right;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.grid-item-blank {
+  background-color: #ffffff;
+}
+
+.grid-item-empty-correct {
+  background-color: #8f8f8f;
+}
+
+.grid-item-filled-correct {
+  background-color: #8fb6ff;
+
+}
+
+.grid-item-empty-incorrect {
+  background-color: #8f8f8f;
+  background: repeating-linear-gradient(
+    45deg,
+    #8f8f8f,
+    #8f8f8f 10px,
+    #ff6666 10px,
+    #ff6666 20px
+  );
+}
+
+.grid-item-filled-incorrect {
+  background-color: #8fb6ff;
+  background: repeating-linear-gradient(
+    45deg,
+    #8fb6ff,
+    #8fb6ff 10px,
+    #ff6666 10px,
+    #ff6666 20px
+  );
 }
