@@ -41,13 +41,49 @@ class Square extends React.Component {
   }
 }
 
+class TopClue extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div className="grid-item-top-clue" >
+        {this.props.clues}
+      </div>
+    )
+  }
+}
+
+class ClueAndRow extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      // <div className="grid-item-left-clue">{this.makeBGClue(this.binaryGrid.slice(0,5))}</div>
+      <div>
+        <div className="grid-item-left-clue">{this.props.clues}</div>
+        {this.props.binaryLine}
+      </div>
+      // {this.renderSquare(0)}
+      // {this.renderSquare(1)}
+      // {this.renderSquare(2)}
+      // {this.renderSquare(3)}
+      // {this.renderSquare(4)}
+    )
+  }
+}
+
 class Board extends React.Component {
   constructor(props) {
     super(props);
+    this.gridSize = props.dim*props.dim;
     this.state = {
-      squareStates: Array(25).fill(0)
+      squareStates: Array(this.gridSize).fill(0)
     };
-    this.binaryGrid = Array.from({ length: 25 }, () => Math.floor(Math.random() * 2))
+    this.binaryGrid = Array.from({ length: this.gridSize }, () => Math.floor(Math.random() * 2));
     this.existCount = 0;
     this.binaryGrid.forEach(binary => {
       this.existCount += binary;
@@ -55,12 +91,15 @@ class Board extends React.Component {
     this.existGuessCount = 0;
     this.done = 'Playing...';
     this.mistakes = 0;
+    this.topClues = [...Array(props.dim).keys()].map((x) => this.renderTopClue(x));
+    this.clueAndRows = [...Array(props.dim).keys()].map((x) => this.renderClueAndRow(x, props.dim*x));
+    console.log(this.clueAndRows);
   }
 
-  getBGClumn(start) {
+  getBGColumn(start) {
     const result = [];
   
-    for (let i = start; i < this.binaryGrid.length; i += 5) {
+    for (let i = start; i < this.binaryGrid.length; i += this.props.dim) {
       result.push(this.binaryGrid[i]);
     }
   
@@ -133,11 +172,35 @@ class Board extends React.Component {
     }
   }
 
+  renderTopClue(i) {
+    return (
+      <TopClue
+        clues={this.makeBGClue(this.getBGColumn(i))}
+        key={i}
+      />
+    );
+  }
+
+  renderClueAndRow(i, start) {
+    return (
+      <ClueAndRow
+        clues={this.makeBGClue(this.binaryGrid.slice(start, start+this.props.dim))}
+        binaryLine={
+          [...Array(this.props.dim).keys()]
+            .map(x => x + start)
+            .map((x) => this.renderSquare(x))
+        }
+        key={i}
+      />
+    );
+  }
+
   renderSquare(i) {
     return (
       <Square
         style={this.state.squareStates[i]}
         onClick={(e) => this.handleClick(e, i)}
+        key={i}
       />
     );
   }
@@ -150,13 +213,10 @@ class Board extends React.Component {
         Hold CMD and click to guess empty.
         <div className="grid-container">
           <div></div>
-          <div className="grid-item-top-clue" >{this.makeBGClue(this.getBGClumn(0))}</div>
-          <div className="grid-item-top-clue">{this.makeBGClue(this.getBGClumn(1))}</div>
-          <div className="grid-item-top-clue">{this.makeBGClue(this.getBGClumn(2))}</div>
-          <div className="grid-item-top-clue">{this.makeBGClue(this.getBGClumn(3))}</div>
-          <div className="grid-item-top-clue">{this.makeBGClue(this.getBGClumn(4))}</div>
+          {this.topClues}
+          {this.clueAndRows}
 
-          <div className="grid-item-left-clue">{this.makeBGClue(this.binaryGrid.slice(0,5))}</div>
+          {/* <div className="grid-item-left-clue">{this.makeBGClue(this.binaryGrid.slice(0,5))}</div>
           {this.renderSquare(0)}
           {this.renderSquare(1)}
           {this.renderSquare(2)}
@@ -189,7 +249,7 @@ class Board extends React.Component {
           {this.renderSquare(21)}
           {this.renderSquare(22)}
           {this.renderSquare(23)}
-          {this.renderSquare(24)}
+          {this.renderSquare(24)} */}
         </div>
         Mistakes: {this.mistakes}
         <br/>
@@ -201,7 +261,7 @@ class Board extends React.Component {
 
 function App() {
   return (
-    <Board />
+    <Board dim={5}/>
   );
 }
 
