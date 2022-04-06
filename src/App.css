@@ -1,3 +1,7 @@
+:root {
+  --colNum: 5;
+}
+
 .centered {
   position: fixed;
   top: 50%;
@@ -6,24 +10,19 @@
   transform: translate(-50%, -50%);
 }
 
-.main {
-  width: 500;
-  height: 500;
-}
-
 .grid-container {
   display: grid;
   width: fit-content;
   height: fit-content;
-  grid-template-columns: auto auto auto auto auto auto;
+  grid-template-columns: repeat(var(--colNum), auto);
   background-color: #000000;
   gap: 1px;
   border: 1px solid #000000;
 }
 
 .grid-item {
-  width: 50px;
-  height: 50px;
+  width: 25px;
+  height: 25px;
 }
 
 .grid-item-top-clue {
@@ -40,7 +39,7 @@
   display: flex;
   background-color: #ffffff;
   padding: 3px;
-  letter-spacing: 3px;
+  letter-spacing: 5px;
   justify-content: right;
   align-items: center;
 }
@@ -63,9 +62,9 @@
   background: repeating-linear-gradient(
     45deg,
     #8f8f8f,
-    #8f8f8f 10px,
-    #ff6666 10px,
-    #ff6666 20px
+    #8f8f8f 5px,
+    #ff6666 5px,
+    #ff6666 10px
   );
 }
 
@@ -74,8 +73,8 @@
   background: repeating-linear-gradient(
     45deg,
     #8fb6ff,
-    #8fb6ff 10px,
-    #ff6666 10px,
-    #ff6666 20px
+    #8fb6ff 5px,
+    #ff6666 5px,
+    #ff6666 10px
   );
 }
