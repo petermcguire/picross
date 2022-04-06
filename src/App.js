@@ -5,7 +5,7 @@ import Game from './components/Game';
 
 function App() {
   return (
-    <Game dim={15} />
+    <Game dim={10} />
   );
 }
 

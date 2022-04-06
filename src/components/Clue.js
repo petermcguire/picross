@@ -5,7 +5,7 @@ class Clue extends React.Component {
       super(props);
     }
   
-    makeClue(binaryLine) {
+    makeClue = (binaryLine) => {
       const clue = [];
       var run = 0;
   

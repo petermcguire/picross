@@ -21,7 +21,7 @@ class Board extends React.Component {
         this.mistakes = 0;
     }
 
-    getColumn(start) {
+    getColumn = (start) => {
         const result = [];
 
         for (let i = start; i < this.binaryGrid.length; i += this.props.dim) {
@@ -31,7 +31,7 @@ class Board extends React.Component {
         return result;
     }
 
-    handleClick(e, i) {
+    handleClick = (e, i) => {
         const squareStates = [...this.state.squareStates];
         // don't do anything if already guessed
         if (squareStates[i] != 0) {
@@ -66,6 +66,11 @@ class Board extends React.Component {
         if (this.existGuessCount === this.existCount) {
             this.done = 'DONE!!!!'
         }
+        // update game info
+        this.props.updateGameInfo({
+            mistakes: this.mistakes,
+            done: this.done
+        });
     }
 
     render() {
