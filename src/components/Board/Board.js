@@ -1,6 +1,7 @@
 import React from 'react';
-import Square from './Square'
-import Clue from './Clue';
+import Square from '../Square/Square'
+import Clue from '../Clue/Clue';
+import './Board.css'
 
 class Board extends React.Component {
     constructor(props) {
@@ -66,11 +67,12 @@ class Board extends React.Component {
         if (this.existGuessCount === this.existCount) {
             this.done = 'DONE!!!!'
         }
-        // update game info
-        this.props.updateGameInfo({
+        var info = {
             mistakes: this.mistakes,
             done: this.done
-        });
+        }
+        // update game info
+        this.props.updateGameInfo(info); 
     }
 
     render() {

@@ -1,5 +1,5 @@
 import React from 'react';
-import Board from "./Board";
+import Board from "../Board/Board";
 
 
 class Game extends React.Component {
@@ -20,7 +20,7 @@ class Game extends React.Component {
 
     render() {
         return (
-            <div className='centered'>
+            <div>
                 Dimension is {this.props.dim}
                 <br />
                 Click to guess filled.
