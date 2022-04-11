@@ -17,10 +17,7 @@ class Clue extends React.Component {
             } else {
                 if (run > 0) {
                     clue.push(
-
-                            <div className='clue'>{run}</div>
-
-
+                        <div className='clue'>{run}</div>
                     );
                     run = 0;
                 }
@@ -47,7 +44,11 @@ class Clue extends React.Component {
     render() {
         return (
             <div className={this.props.style} >
-                {this.makeClue(this.props.col)}
+                {
+                    React.Children.toArray(
+                        this.makeClue(this.props.col)
+                    )
+                }
             </div>
         )
     }

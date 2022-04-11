@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
-import Game from './components/Game/Game';
+import Settings from './components/Settings/Settings';
+
 
 function App() {
   return (
-    <Game dim={10} />
+    <Settings />
   );
 }
 
