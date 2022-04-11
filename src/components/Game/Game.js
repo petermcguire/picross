@@ -1,6 +1,10 @@
 import React from 'react';
 import Board from "../Board/Board";
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+
+function withNavigation(Component) {
+    return props => <Component {...props} navigate={useNavigate()} />;
+}
 
 function withParams(Component) {
     return props => <Component {...props} params={useParams()} />;
@@ -23,7 +27,6 @@ class Game extends React.Component {
     }
 
     render() {
-        console.log(this.props);
         var _dim = parseInt(this.props.params.dim);
         return (
             <div>
@@ -39,9 +42,13 @@ class Game extends React.Component {
                 Mistakes: {this.state.mistakes}
                 <br />
                 {this.state.done}
+                <br />
+                <button onClick={() => this.props.navigate('/') }>
+                    NEW GAME
+                </button>
             </div>
         )
     }
 }
 
-export default withParams(Game);
+export default withNavigation(withParams(Game));

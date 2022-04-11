@@ -2,10 +2,6 @@
   --colNum: 5;
 }
 
-body {
-  padding: 20px;
-}
-
 .centered {
   position: fixed;
   top: 50%;
