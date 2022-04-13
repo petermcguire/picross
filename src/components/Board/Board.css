@@ -28,37 +28,3 @@
   align-items: center;
   flex-direction: row;
 }
-
-.grid-item-blank {
-  background-color: #ffffff;
-}
-
-.grid-item-empty-correct {
-  background-color: #8f8f8f;
-}
-
-.grid-item-filled-correct {
-  background-color: #8fb6ff;
-}
-
-.grid-item-empty-incorrect {
-  background-color: #8f8f8f;
-  background: repeating-linear-gradient(
-    45deg,
-    #8f8f8f,
-    #8f8f8f 5px,
-    #ff6666 5px,
-    #ff6666 10px
-  );
-}
-
-.grid-item-filled-incorrect {
-  background-color: #8fb6ff;
-  background: repeating-linear-gradient(
-    45deg,
-    #8fb6ff,
-    #8fb6ff 5px,
-    #ff6666 5px,
-    #ff6666 10px
-  );
-}

@@ -12,7 +12,8 @@ class Board extends React.Component {
         this.state = {
             squareStates: Array(this.gridSize).fill(0)
         };
-        this.binaryGrid = Array.from({ length: this.gridSize }, () => Math.floor(Math.random() * 2));
+        var mod = 0.1;
+        this.binaryGrid = Array.from({ length: this.gridSize }, () => (Math.random() + mod) < 0.5 ? 0 : 1);
         this.existCount = 0;
         this.binaryGrid.forEach(binary => {
             this.existCount += binary;

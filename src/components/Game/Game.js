@@ -26,7 +26,7 @@ class Game extends React.Component {
         });
     }
 
-    render() {
+    render() {  
         var _dim = parseInt(this.props.params.dim);
         return (
             <div>
@@ -34,7 +34,7 @@ class Game extends React.Component {
                 <br />
                 Click to guess filled.
                 <br />
-                Hold CMD and click to guess empty.
+                Hold meta key and click to guess empty.
                 <Board
                     dim={_dim}
                     updateGameInfo={this.updateGameInfo}

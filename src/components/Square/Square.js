@@ -1,4 +1,5 @@
 import React from 'react';
+import './Square.css';
 
 const getStyle = (key) => {
     // 0: Blank
