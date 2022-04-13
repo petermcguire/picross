@@ -79,7 +79,7 @@ class Board extends React.Component {
     render() {
         return (
             <div className="grid-container">
-                <div></div>
+                <div className='grid-item-top-clue'></div>
                 {
                     React.Children.toArray(
                         [...Array(this.props.dim).keys()].map((x) =>

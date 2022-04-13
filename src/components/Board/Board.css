@@ -3,9 +3,9 @@
   width: fit-content;
   height: fit-content;
   grid-template-columns: repeat(var(--colNum), auto);
-  background-color: #000000;
+  background-color: #ffffff;
   gap: 1px;
-  border: 1px solid #000000;
+  border: 1px solid #ffffff;
 }
 
 .grid-item {
@@ -15,7 +15,7 @@
 
 .grid-item-top-clue {
   display: flex;
-  background-color: #ffffff;
+  background-color: #000000;
   align-items: center;
   justify-content: flex-end;
   flex-direction: column;
@@ -23,7 +23,7 @@
 
 .grid-item-left-clue {
   display: flex;
-  background-color: #ffffff;
+  background-color: #000000;
   justify-content: right;
   align-items: center;
   flex-direction: row;
