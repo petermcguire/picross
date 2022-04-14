@@ -8,11 +8,6 @@
   border: 1px solid #ffffff;
 }
 
-.grid-item {
-  width: 30px;
-  height: 30px;
-}
-
 .grid-item-top-clue {
   display: flex;
   background-color: #000000;

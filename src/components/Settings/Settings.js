@@ -1,6 +1,7 @@
 import React from 'react';
 import Game from '../Game/Game';
 import { useNavigate } from 'react-router-dom';
+import './Settings.css'
 
 function withNavigation(Component) {
     return props => <Component {...props} navigate={useNavigate()} />;
@@ -38,3 +39,4 @@ class Settings extends React.Component {
 }
 
 export default withNavigation(Settings);
+// export default Settings;

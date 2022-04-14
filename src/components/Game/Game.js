@@ -1,6 +1,7 @@
 import React from 'react';
 import Board from "../Board/Board";
 import { useParams, useNavigate } from 'react-router-dom';
+import './Game.css'
 
 function withNavigation(Component) {
     return props => <Component {...props} navigate={useNavigate()} />;
