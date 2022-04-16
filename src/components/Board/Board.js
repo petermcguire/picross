@@ -40,7 +40,7 @@ class Board extends React.Component {
             return;
         }
         // check guess against binary grid
-        if (e.metaKey) {
+        if (e.ctrlKey) {
             // guess is empty
             if (this.binaryGrid[i] === 0) {
                 // correct guess: empty

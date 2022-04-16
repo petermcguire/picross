@@ -35,7 +35,7 @@ class Game extends React.Component {
                 <br />
                 Click to guess filled.
                 <br />
-                Hold meta key and click to guess empty.
+                Hold CTRL key and click to guess empty.
                 <Board
                     dim={_dim}
                     updateGameInfo={this.updateGameInfo}
