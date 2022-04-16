@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Picross App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a very basic implementation of the [picross](https://en.wikipedia.org/wiki/Nonogram) game.  The purpose of this project is to act as a learning vehicle for ReactJS. 
 
 ## Available Scripts
 
